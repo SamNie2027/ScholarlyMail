@@ -10,7 +10,13 @@ import { Schema } from 'mongoose';
  * - `time`: the desired time for the emails in UTC, consisting of:
  *      - `hour`: the hour in UTC military time: ranges from 0 to 23 (inclusive)
  *      - `minute`: the minutes in UTC, ranging from 0 to 59
- * - `keywords`: a list of keywords to match (at least one must match)
+ *  - `dateStartRange`: The desired starting range for articles to be published after
+ *      - `day`: the day of the month
+ *      - `month`: the month number (1 to 12)
+ *      - `year`: the year (1 to present day 2000s year)
+ * - `subject`: the subject number of the articles to return according to scopus' subject classifications:  
+ *    https://api.elsevier.com/content/subject/scopus?httpAccept=text/xml
+ * - `searchParams`: Search parameters with keywords and (AND, OR, AND NOT, ect.)
  */
 const configurationSchema: Schema = new Schema(
 {
@@ -41,6 +47,37 @@ const configurationSchema: Schema = new Schema(
             }  
         }
     },
-    keywords: [{ type: String }],
+    dateStartRange: {
+        day: {
+            type: Number,
+            default: 0,
+        },
+        month: {
+            type: Number,
+            default: 0,
+        }, 
+        year: {
+            type: Number,
+            default: 1,
+        },
+    },
+    dateEndRange: {
+        day: {
+            type: Number,
+            default: 0,
+        },
+        month: {
+            type: Number,
+            default: 0,
+        }, 
+        year: {
+            type: Number,
+            default: 1,
+        },
+    },
+    subject: { 
+        type: Number,
+    },
+    searchParams: [{ type: String }],
 }
 );

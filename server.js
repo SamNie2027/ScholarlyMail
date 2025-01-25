@@ -8,7 +8,7 @@ const { auth } = require('express-openid-connect');
 
 //Mongodb connection below
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://niesa:UPUAQUQcVklIGTP1@scholarlymail.6gtoi.mongodb.net/?retryWrites=true&w=majority&appName=ScholarlyMail";
+const uri = "mongodb://localhost:27017/";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {

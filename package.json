@@ -1,7 +1,7 @@
 {
   "name": "auth0-express-webapp-sample",
   "scripts": {
-    "start": "node server.js"
+    "start": "node ./server/server.js"
   },
   "dependencies": {
     "ajax": "^0.0.4",
@@ -15,7 +15,8 @@
     "mongodb": "6.10",
     "mongoose": "^8.9.5",
     "morgan": "~1.10.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "react-router-dom": "^7.1.3"
   },
   "version": "1.0.0",
   "description": "This sample demonstrates authentication for an Express Node.js app. The sample quickly shows how to log in, log out, and view profile information of the logged-in user.",
